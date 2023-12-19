@@ -10,9 +10,6 @@ import java.util.*;
 @Service
 
 public class ExaminerServiceImpl implements ExaminerService {
-
-
-
     private final List<QuestionService> list;
 
     public ExaminerServiceImpl(JavaQuestionService javaQuestionService, MathQuestionService mathQuestionService) {
@@ -22,19 +19,20 @@ public class ExaminerServiceImpl implements ExaminerService {
 
     @Override
     public Set<Question> getQuestion(int amount) {
+
         int halfAmount = amount - amount / 2;
-
-        Set<Question> questionsJava = new HashSet<>();
-        Set<Question> questionsMath = new HashSet<>();
-        while (list.size() < halfAmount) {
-
-           questionsJava.add(list.get(0).getRandomQuestion());
+        if (halfAmount > list.get(0).size() || amount < 1) {
+            throw new IllegalArgumentException();
         }
-        while (list.size() < amount) {
-            questionsMath.add(list.get(1).getRandomQuestion());
+        Set<Question> questions = new HashSet<>();
+        while (questions.size() < halfAmount) {
+            questions.add(list.get(0).getRandomQuestion());
         }
-        questionsMath.addAll(questionsJava);
-        return questionsMath;
+        while (questions.size() < amount) {
+            questions.add(list.get(1).getRandomQuestion());
+        }
+
+        return questions;
     }
 }
 

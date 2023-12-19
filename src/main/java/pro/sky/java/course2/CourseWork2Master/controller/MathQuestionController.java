@@ -22,30 +22,30 @@ public class MathQuestionController {
         this.mathQuestionService = question;
     }
 
+
     @GetMapping("/add")
 
-    public Question add(@RequestParam String question, @RequestParam String answer)  {
-        throw new  MethodNotAllowed();
+    public Question add(@RequestParam String question, @RequestParam String answer) {
+        throw new MethodNotAllowed();
 
-      //  return mathQuestionService.add(question, answer);
+
     }
 
     @GetMapping("/remove")
     public Question remove(@RequestParam String question, @RequestParam String answer) {
-//
-        throw new  MethodNotAllowed();
+
+        throw new MethodNotAllowed();
     }
 
     @GetMapping
     public Collection<Question> getQuestions() {
-        throw new  MethodNotAllowed();
-       /* return mathQuestionService.getAll();*/
+        throw new MethodNotAllowed();
+
     }
 
     @GetMapping("/find")
     public Question find(@RequestParam String question) {
-        /*return mathQuestionService.find(question);*/
-        throw new  MethodNotAllowed();
+        throw new MethodNotAllowed();
     }
 
 }
