@@ -26,7 +26,7 @@ public class MathQuestionController {
     @GetMapping("/add")
 
     public Question add(@RequestParam String question, @RequestParam String answer) {
-        throw new MethodNotAllowed();
+        return  mathQuestionService.add(question,answer);
 
 
     }
@@ -34,18 +34,18 @@ public class MathQuestionController {
     @GetMapping("/remove")
     public Question remove(@RequestParam String question, @RequestParam String answer) {
 
-        throw new MethodNotAllowed();
+       return mathQuestionService.remove(new Question(question,answer));
     }
 
     @GetMapping
     public Collection<Question> getQuestions() {
-        throw new MethodNotAllowed();
+        return mathQuestionService.getAll();
 
     }
 
     @GetMapping("/find")
     public Question find(@RequestParam String question) {
-        throw new MethodNotAllowed();
+        return mathQuestionService.find(question);
     }
 
 }

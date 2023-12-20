@@ -16,25 +16,25 @@ public class MathQuestionService implements QuestionService {
 
     @Override
     public Question add(String question, String answer)  {
-        return null;
+        throw new MethodNotAllowed();
     }
 
 
     @Override
     public Question remove(Question question) {
 
-        return null;
+        throw new MethodNotAllowed();
     }
 
     @Override
     public Collection<Question> getAll() {
 
-        return null;
+        throw new MethodNotAllowed();
     }
 
     @Override
     public Question find(String question) {
-        return null;
+        throw new MethodNotAllowed();
 
     }
 
@@ -44,8 +44,8 @@ public class MathQuestionService implements QuestionService {
         int i = random.nextInt(25);
         int j= random.nextInt(25);
 
-        return new Question("дайте результат вычисления: "+ i+ "умножить на " +j,
-                "результат равен "+ i*j);
+        return new Question("дайте результат вычисления: "+ i+ " умножить на " +j,
+                " результат равен "+ i*j);
 
     }
 
